@@ -12,6 +12,8 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
+    //Commit new branch
+
     companion object {
         private const val DATABASE_NAME: String = "nome-do-banco-de-dados"
 
