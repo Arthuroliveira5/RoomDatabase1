@@ -12,26 +12,26 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
-    //Commit new branch
-
     companion object {
+
         private const val DATABASE_NAME: String = "nome-do-banco-de-dados"
 
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        // Função para obter a instância única do banco de dados
-        fun getInstance(context: Context): AppDatabase = INSTANCE ?: synchronized(this) {
-            INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
-        }
+        fun getInstance(context: Context): AppDatabase =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+            }
 
-        // Função para construir o banco de dados
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
-                .build()
+            Room.databaseBuilder(
+                context.applicationContext,
+                AppDatabase::class.java, DATABASE_NAME
+            ).build()
     }
-}
 
+}
 
 
 

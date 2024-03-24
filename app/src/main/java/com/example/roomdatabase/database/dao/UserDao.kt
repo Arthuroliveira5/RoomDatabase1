@@ -12,10 +12,10 @@ interface UserDao {
 
     @Insert
     //Vamos usar coroutines entao usamos o suspend
-    suspend fun insert(user: User){
+    suspend fun insert(user: User)
 
 
-    }
+
 
 
     @Query("SELECT COUNT(uid) FROM user")
